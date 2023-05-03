@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors')
-const  websiteData = require('./Data/DarensDeliciousDeserts.js')
+const websiteData = require('./Data/DarensDeliciousDeserts.js')
 
 const app = express();
 app.use(cors())
@@ -8,10 +8,17 @@ const PORT = 3000;
 
 
 app.get('/', (req, res) => {
-    console.log()
+    console.log("[PATH /]")
     res.status(200);
     res.send(websiteData.getWebsiteData());
 });
+
+app.get('/image/:imagePath', (req, res) => {
+    console.log("[PATH /image] Getting image : " + req.params.imagePath)
+    res.status(200)
+    res.send()
+}
+)
 app.route('/menu')
     .get((req, res) => {
         res.status(200);
