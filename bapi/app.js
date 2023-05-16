@@ -1,10 +1,13 @@
 const express = require('express');
 const cors = require('cors')
+const stripe = require('stripe')("sk_test_51N6xSvBx51FhtWheFGIEwSfdAKGrDDULGfb7XDfsEPcRL0JgaYofz3mheB1TXqwnznjqKNPJiIaUn7QUik2Y2WQF00d8Iz0ysy")
 const websiteData = require('./Data/DarensDeliciousDeserts.js')
 
 const app = express();
 app.use(cors())
-const PORT = 3000;
+app.use(express.static('public'))
+app.use(express.json())
+const PORT = 4000;
 
 
 app.get('/', (req, res) => {
